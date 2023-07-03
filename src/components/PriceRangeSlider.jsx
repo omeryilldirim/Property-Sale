@@ -3,13 +3,10 @@ import { Slider, Typography, TextField, Grid } from '@mui/material';
 
 const PriceRangeSlider = ({searchQuery, setSearchQuery}) => {
   const [priceRange, setPriceRange] = useState([searchQuery.minPrice, searchQuery.maxPrice]);
-  const [minPrice, setMinPrice] = useState(priceRange[0]);
-  const [maxPrice, setMaxPrice] = useState(priceRange[1]);
+
 
   const handlePriceChange = (event, newValue) => {
     setPriceRange(newValue);
-    setMinPrice(newValue[0]);
-    setMaxPrice(newValue[1]);
     setSearchQuery({...searchQuery, minPrice: newValue[0], maxPrice: newValue[1]});
   };
 
@@ -17,7 +14,6 @@ const PriceRangeSlider = ({searchQuery, setSearchQuery}) => {
     const newMinPrice = event.target.value === '' ? 0 : Number(event.target.value);
     const newPriceRange = [newMinPrice, priceRange[1]];
     setPriceRange(newPriceRange);
-    setMinPrice(newMinPrice);
     setSearchQuery({...searchQuery, minPrice: newMinPrice, maxPrice: priceRange[1]});
   };
 
@@ -25,7 +21,6 @@ const PriceRangeSlider = ({searchQuery, setSearchQuery}) => {
     const newMaxPrice = event.target.value === '' ? 0 : Number(event.target.value);
     const newPriceRange = [priceRange[0], newMaxPrice];
     setPriceRange(newPriceRange);
-    setMaxPrice(newMaxPrice);
     setSearchQuery({...searchQuery, minPrice: priceRange[0], maxPrice: newMaxPrice});
   };
 
@@ -54,7 +49,7 @@ const PriceRangeSlider = ({searchQuery, setSearchQuery}) => {
           onChange={handleMaxPriceChange}
         />
         <Slider
-          value={priceRange}
+          value={[searchQuery.minPrice, searchQuery.maxPrice]}
           onChange={handlePriceChange}
           valueLabelDisplay="auto"
           aria-labelledby="price-range-slider"
