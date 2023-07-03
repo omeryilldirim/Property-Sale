@@ -17,6 +17,7 @@ import commerceTypes from "../helper/commerceTypes";
 import PriceRangeSlider from "./PriceRangeSlider";
 
 const Header = () => {
+const [states, setStates] = useState([]);
   const [searchQuery, setSearchQuery] = useState({
     commerceType: [],
     category: "",
@@ -71,8 +72,8 @@ const Header = () => {
             id="select-rent-sale"
             // value={age}
             label="Rent / Sale"
-            //   onChange={handleChange}
-            
+            onChange={(e) => setSearchQuery({...searchQuery, category: e.target.value})}
+            defaultValue=''
           >
             <MenuItem selected value="">
               <em>Select</em>
@@ -90,8 +91,10 @@ const Header = () => {
             id="select-country"
             // value={country}
             label="Country"
-            //   onChange={handleChange}
-            
+            onChange={(e) => {
+                setSearchQuery({...searchQuery, country: e.target.value})
+                setStates(statesData[e.target.value])}}
+            defaultValue=''
           >
             <MenuItem selected value="">
               <em>Select</em>
@@ -111,12 +114,12 @@ const Header = () => {
             // value={state}
             label="State"
             //   onChange={handleChange}
-            
+            defaultValue=''
           >
             <MenuItem selected value="">
               <em>Select</em>
             </MenuItem>
-            {statesData.country?.map((state) => (
+            {states?.map((state) => (
               <MenuItem value={state}>{state}</MenuItem>
             ))}
           </Select>
@@ -131,7 +134,7 @@ const Header = () => {
             // value={room}
             label="Room"
             // onChange={handleChange}
-            
+            defaultValue=''
           >
             <MenuItem selected value=''>
               <em>Select</em>
