@@ -20,19 +20,7 @@ import PriceRangeSlider from "./PriceRangeSlider";
 
 const Header = () => {
   const [states, setStates] = useState([]);
-  const [searchQuery, setSearchQuery] = useState({
-    commerceType: [],
-    category: "",
-    country: "",
-    state: "",
-    room: "",
-    star: "",
-    resale: false,
-    date: "",
-    keyword: "",
-    minPrice: "",
-    maxPrice: "",
-  });
+  const [searchQuery, setSearchQuery] = useState({...defaultValues});
 
   const formRef = useRef(null);
 
