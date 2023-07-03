@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState} from "react";
 import {
   FormGroup,
   FormControlLabel,
@@ -20,14 +20,7 @@ import PriceRangeSlider from "./PriceRangeSlider";
 
 const Header = () => {
   const [states, setStates] = useState([]);
-  const [searchQuery, setSearchQuery] = useState({...defaultValues});
-
-  const formRef = useRef(null);
-
-  const resetForm = () => {
-    setSearchQuery({ ...defaultValues });
-    formRef.current.reset();
-  };
+  const [searchQuery, setSearchQuery] = useState({...defaultValues})
 
   const handleCommerceTypeChange = (e) => {
     e.target.checked
@@ -44,7 +37,7 @@ const Header = () => {
   };
 
   return (
-    <form ref={formRef}>
+    <form>
 
     <Grid
       container
@@ -68,6 +61,9 @@ const Header = () => {
               control={<Checkbox />}
               label={commerceType}
               value={commerceType.toLowerCase()}
+              checked={searchQuery.commerceType.includes(
+                commerceType.toLowerCase()
+                )}
               onClick={handleCommerceTypeChange}
             />
           ))}
@@ -79,7 +75,7 @@ const Header = () => {
           <Select
             labelId="rentOrSale"
             id="select-rent-sale"
-            // value={age}
+            value={searchQuery.category}
             label="Rent / Sale"
             onChange={(e) =>
               setSearchQuery({ ...searchQuery, category: e.target.value })
@@ -105,7 +101,7 @@ const Header = () => {
               setSearchQuery({ ...searchQuery, country: e.target.value });
               setStates(statesData[e.target.value]);
             }}
-            defaultValue=""
+            value={searchQuery.country}
           >
             <MenuItem selected value="">
               <em>Select</em>
@@ -124,6 +120,7 @@ const Header = () => {
             labelId="state"
             id="select-state"
             label="State"
+            value={searchQuery.state}
             onChange={(e) =>
               setSearchQuery({ ...searchQuery, state: e.target.value })
             }
@@ -145,6 +142,7 @@ const Header = () => {
             labelId="room"
             id="select-room"
             label="Room"
+            value={searchQuery.room}
             onChange={(e) =>
               setSearchQuery({ ...searchQuery, room: e.target.value })
             }
@@ -162,6 +160,7 @@ const Header = () => {
       <Grid item>
         <Rating
           name="half-rating"
+          value={searchQuery.star}
           defaultValue={0}
           precision={0.5}
           onChange={(e) =>
@@ -172,7 +171,9 @@ const Header = () => {
       <Grid item>
         <FormControlLabel
           control={<Checkbox />}
+          checked={searchQuery.resale}
           label="ReSale"
+          value={searchQuery.resale}
           onChange={() =>
             setSearchQuery({ ...searchQuery, resale: !searchQuery.resale })
           }
@@ -182,7 +183,7 @@ const Header = () => {
         <TextField
           label="Search..."
           variant="outlined"
-          defaultValue=""
+          value={searchQuery.keyword}
           size="small"
           fullWidth
           onChange={(e) =>
@@ -232,7 +233,7 @@ const Header = () => {
           <Button
             variant="contained"
             color="warning"
-            onClick={resetForm}
+            onClick={() => setSearchQuery({...defaultValues})}
             fullWidth
           >
             Clear

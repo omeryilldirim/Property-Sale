@@ -4,12 +4,12 @@ const defaultValues = {
     country: "",
     state: "",
     room: "",
-    star: "",
+    star: null,
     resale: false,
     date: "",
     keyword: "",
-    minPrice: "",
-    maxPrice: "",
+    minPrice:0,
+    maxPrice: 1000000,
 }
 
 export default defaultValues;
