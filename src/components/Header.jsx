@@ -91,7 +91,6 @@ const [states, setStates] = useState([]);
           <Select
             labelId="country"
             id="select-country"
-            // value={country}
             label="Country"
             onChange={(e) => {
                 setSearchQuery({...searchQuery, country: e.target.value})
@@ -113,9 +112,8 @@ const [states, setStates] = useState([]);
           <Select
             labelId="state"
             id="select-state"
-            // value={state}
             label="State"
-            //   onChange={handleChange}
+            onChange={(e) => setSearchQuery({...searchQuery, state: e.target.value})}
             defaultValue=''
           >
             <MenuItem selected value="">
@@ -133,9 +131,8 @@ const [states, setStates] = useState([]);
           <Select
             labelId="room"
             id="select-room"
-            // value={room}
             label="Room"
-            // onChange={handleChange}
+            onChange={(e) => setSearchQuery({...searchQuery, room: e.target.value})}
             defaultValue=''
           >
             <MenuItem selected value=''>
@@ -148,24 +145,24 @@ const [states, setStates] = useState([]);
         </FormControl>
       </Grid>
       <Grid item>
-        <Rating name="half-rating" defaultValue={0} precision={0.5} />
+        <Rating name="half-rating" defaultValue={0} precision={0.5} onChange={(e)=> setSearchQuery({...searchQuery, star:+e.target.value})} />
       </Grid>
       <Grid item>
-        <FormControlLabel control={<Checkbox />} label="ReSale" />
+        <FormControlLabel control={<Checkbox />} label="ReSale" onChange={()=>setSearchQuery({...searchQuery, resale: !searchQuery.resale})} />
       </Grid>
       <Grid item xs={3}>
         <TextField
           label="Search..."
           variant="outlined"
-          value={""}
+          defaultValue=''
           size="small"
           fullWidth
-          //onChange={handleChange}
+          onChange={(e)=>setSearchQuery({...searchQuery, keyword: e.target.value})}
         />
       </Grid>
 
       <Grid item xs={4}>
-        <PriceRangeSlider />
+        <PriceRangeSlider setSearchQuery={setSearchQuery} />
       </Grid>
 
       <Grid item>

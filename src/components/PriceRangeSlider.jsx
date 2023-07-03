@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Slider, Typography, TextField, Grid } from '@mui/material';
 
-const PriceRangeSlider = () => {
+const PriceRangeSlider = ({setSearchQuery}) => {
   const [priceRange, setPriceRange] = useState([0, 1000000]);
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
@@ -15,6 +15,7 @@ const PriceRangeSlider = () => {
   const handleMinPriceChange = (event) => {
     const newMinPrice = event.target.value === '' ? 0 : Number(event.target.value);
     const newPriceRange = [newMinPrice, priceRange[1]];
+    setSearchQuery({...setSearchQuery, minPrice: newMinPrice});
     setPriceRange(newPriceRange);
     setMinPrice(newMinPrice);
   };
@@ -38,7 +39,7 @@ const PriceRangeSlider = () => {
           type="number"
           size='small'
           value={minPrice}
-          sx={{maxWidth: '110px'}}
+          sx={{maxWidth: '110px', paddingY: '5px'}}
           onChange={handleMinPriceChange}
         />  
         <TextField
@@ -47,7 +48,7 @@ const PriceRangeSlider = () => {
           type="number"
           value={maxPrice}
           size='small'
-          sx={{maxWidth: '110px'}}
+          sx={{maxWidth: '110px', paddingY: '5px'}}
           onChange={handleMaxPriceChange}
         />
         <Slider
