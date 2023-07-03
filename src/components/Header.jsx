@@ -29,6 +29,8 @@ const [states, setStates] = useState([]);
     price: "",
     date: "",
     keyword: "",
+    minPrice: "",
+    maxPrice: "",
   });
 
   const handleSearch = () => {
