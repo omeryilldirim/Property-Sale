@@ -13,9 +13,9 @@ const PriceRangeSlider = ({setSearchQuery}) => {
   };
 
   const handleMinPriceChange = (event) => {
-    const newMinPrice = event.target.value === '' ? 0 : Number(event.target.value);
+    const newMinPrice = +event.target.value
     const newPriceRange = [newMinPrice, priceRange[1]];
-    setSearchQuery({...setSearchQuery, minPrice: newMinPrice});
+    setSearchQuery({...setSearchQuery, minPrice: 10});
     setPriceRange(newPriceRange);
     setMinPrice(newMinPrice);
   };

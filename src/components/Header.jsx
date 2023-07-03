@@ -26,7 +26,6 @@ const [states, setStates] = useState([]);
     room: "",
     star: "",
     resale: false,
-    price: "",
     date: "",
     keyword: "",
     minPrice: "",
@@ -169,10 +168,10 @@ const [states, setStates] = useState([]);
         <TextField
           label="Date"
           type="date"
-          defaultValue="2021-10-24"
           InputLabelProps={{
             shrink: true,
           }}
+          onChange={(e)=>setSearchQuery({...searchQuery, date: e.target.value})}
         />
       </Grid>
 
