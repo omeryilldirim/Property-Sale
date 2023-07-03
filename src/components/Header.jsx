@@ -10,9 +10,10 @@ import {
   Grid,
   Button,
   Rating,
-  Form,
+  TextField,
 } from "@mui/material";
 import statesData from "../helper/states";
+import PriceRangeSlider from "./PriceRangeSlider";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState({
@@ -38,9 +39,15 @@ const Header = () => {
   };
 
   return (
-    <Grid container spacing={2} alignItems="center">
-      <Grid item alignItems="center" xs={12} sm={10}>
-        <FormGroup row sx={{ margin: "2rem" }}>
+    <Grid
+      container
+      spacing={2}
+      alignContent="center"
+      padding={4}
+      justifyContent={"center"}
+    >
+      <Grid item alignItems="center" justifyContent={'center'} xs={12}>
+        <FormGroup row sx={{ padding: "2rem" }}>
           <FormControlLabel
             control={<Checkbox />}
             label="Home"
@@ -148,7 +155,7 @@ const Header = () => {
               <em>Select</em>
             </MenuItem>
             {statesData.country?.map((state) => (
-                <MenuItem value={state}>{state}</MenuItem>
+              <MenuItem value={state}>{state}</MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -170,26 +177,59 @@ const Header = () => {
             <MenuItem value="3+1">3+1</MenuItem>
           </Select>
         </FormControl>
-          <Rating name="half-rating" defaultValue={0} precision={0.5} />
+        <Rating name="half-rating" defaultValue={0} precision={0.5} />
+        <FormControlLabel control={<Checkbox />} label="ReSale" />
       </Grid>
-      <Grid item xs={12}>
-        {/* <TextField
-          label="Search properties"
+      <Grid item xs={3}>
+        <TextField
+          label="Search..."
           variant="outlined"
+          value={""}
+          size="small"
           fullWidth
-          value={searchQuery}
-          onChange={handleChange}
-        /> */}
+          //onChange={handleChange}
+        />
       </Grid>
-      <Grid item xs={4} sm={2}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleSearch}
-          fullWidth
-        >
-          Search
-        </Button>
+
+      <Grid item xs={4}>
+        <PriceRangeSlider />
+      </Grid>
+      <Grid item >
+        <TextField
+            label="Date"
+            type="date"
+            defaultValue="2021-10-24"
+            InputLabelProps={{
+                shrink: true,
+                }}
+            />
+
+      </Grid>
+
+      <Grid container spacing={2}
+      alignContent="center"
+      justifyContent={"center"}>
+        <Grid item xs={4} sm={2}>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={handleSearch}
+            fullWidth
+          >
+            Search
+          </Button>
+        </Grid>
+
+        <Grid item xs={2} sm={1}>
+          <Button
+            variant="contained"
+            color="warning"
+            //   onClick={handleClear}
+            fullWidth
+          >
+            Clear
+          </Button>
+        </Grid>
       </Grid>
     </Grid>
   );
