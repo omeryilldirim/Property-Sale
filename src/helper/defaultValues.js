@@ -6,7 +6,7 @@ const defaultValues = {
     room: "",
     star: null,
     resale: false,
-    date: "",
+    date: '',
     keyword: "",
     minPrice:0,
     maxPrice: 1000000,

@@ -203,6 +203,7 @@ const Header = () => {
         <TextField
           label="Date"
           type="date"
+          value={searchQuery.date}
           InputLabelProps={{
             shrink: true,
           }}
@@ -228,7 +229,6 @@ const Header = () => {
             Search
           </Button>
         </Grid>
-
         <Grid item xs={2} sm={1}>
           <Button
             variant="contained"
