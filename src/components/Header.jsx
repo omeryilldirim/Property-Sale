@@ -42,7 +42,7 @@ const Header = () => {
       alignContent="center"
       padding={4}
       justifyContent={"center"}
-      gap={3}
+      gap={4}
     >
       <Grid
         item
@@ -75,7 +75,7 @@ const Header = () => {
         alignContent={"center"}
         justifyContent={"center"}
         xs={12}
-        spacing={2}
+        gap={2}
       >
         <Grid item>
           <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -168,7 +168,7 @@ const Header = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item={"flex-start"}>
+        <Grid item >
           <Rating
             name="half-rating"
             value={searchQuery.star}
@@ -198,8 +198,9 @@ const Header = () => {
         justifyContent={"center"}
         gap={3}
         xs={12}
+        sx={{flexDirection:{ xs: "column", md: "row"}}}
       >
-        <Grid item xs={3}>
+        <Grid item >
           <TextField
             label="Search..."
             variant="outlined"
@@ -212,17 +213,18 @@ const Header = () => {
           />
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item >
           <PriceRangeSlider
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
         </Grid>
 
-        <Grid item>
+        <Grid item >
           <TextField
             label="Date"
             type="date"
+            size="small"
             value={searchQuery.date}
             InputLabelProps={{
               shrink: true,
