@@ -14,6 +14,8 @@ import FAQ from './pages/FAQ';
 import Support from './pages/Support';
 import ContactUs from './pages/ContactUs';
 import BuyAds from './pages/BuyAds';
+import Profile from './pages/Profile';
+import LogOut from './pages/LogOut';
 
 
 function App() {
@@ -44,7 +46,8 @@ function App() {
             <Route path='/support' element={<Support />} />
             <Route path='/contactus' element={<ContactUs />} />
             <Route path='/buyads' element={<BuyAds />} />
-            
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/logout' element={<LogOut />} />
           </Routes>
         </Router>
       </ThemeProvider>

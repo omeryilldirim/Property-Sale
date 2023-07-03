@@ -247,7 +247,9 @@ const Header = () => {
           <Button
             variant="contained"
             color="success"
-            onClick={() => console.log(searchQuery)}
+            onClick={() => {
+                alert('Please check console !')
+                console.log(searchQuery)}}
             fullWidth
           >
             Search
