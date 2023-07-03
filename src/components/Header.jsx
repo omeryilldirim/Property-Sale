@@ -13,6 +13,7 @@ import {
   TextField,
 } from "@mui/material";
 import statesData from "../helper/states";
+import commerceTypes from "../helper/commerceTypes";
 import PriceRangeSlider from "./PriceRangeSlider";
 
 const Header = () => {
@@ -30,7 +31,6 @@ const Header = () => {
   });
 
   const handleSearch = () => {
-    // Pass the search query to the parent component for further processing
     console.log(searchQuery);
   };
 
@@ -46,65 +46,24 @@ const Header = () => {
       padding={4}
       justifyContent={"center"}
     >
-      <Grid item alignItems="center" justifyContent={'center'} xs={12}>
+      <Grid item alignItems="center" justifyContent={"center"} xs={12}>
         <FormGroup row sx={{ padding: "2rem" }}>
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Home"
-            value="home"
-            onChange={(e) => {
-              console.log(e.target.checked);
-            }}
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Residence"
-            value="residence"
-            onChange={(e) => {
-              console.log(e.target.checked);
-            }}
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Landfarm"
-            value="landfarm"
-            onChange={(e) => {
-              console.log(e.target.checked);
-            }}
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Workplace"
-            value="workplace"
-            onChange={(e) => {
-              console.log(e.target.checked);
-            }}
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Lake"
-            value="lake"
-            onChange={(e) => {
-              console.log(e.target.checked);
-            }}
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Historic"
-            value="historic"
-            onChange={(e) => {
-              console.log(e.target.checked);
-            }}
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Rest/Fun"
-            value="rest/fun"
-            onChange={(e) => {
-              console.log(e.target.checked);
-            }}
-          />
+          {commerceTypes.map((commerceType) => (
+            <FormControlLabel key={commerceType}
+              control={<Checkbox />}
+              label={commerceType}
+              value={commerceType.toLowerCase()}
+              onClick={(e) => {
+                e.target.checked ? 
+                    setSearchQuery({...searchQuery, commerceType: [...searchQuery.commerceType, e.target.value]}) 
+                    : setSearchQuery({...searchQuery, commerceType: searchQuery.commerceType.filter((type) => type !== e.target.value)})
+                    console.log(searchQuery);
+              }}
+            />
+          ))}
         </FormGroup>
+      </Grid>
+      <Grid item>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
           <InputLabel id="rentOrSale">Rent/Sale</InputLabel>
           <Select
@@ -122,6 +81,8 @@ const Header = () => {
             <MenuItem value="sale">Sale</MenuItem>
           </Select>
         </FormControl>
+      </Grid>
+      <Grid item>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
           <InputLabel id="country">Country</InputLabel>
           <Select
@@ -140,7 +101,8 @@ const Header = () => {
             <MenuItem value="germany">Germany</MenuItem>
           </Select>
         </FormControl>
-
+      </Grid>
+      <Grid item>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
           <InputLabel id="state">State</InputLabel>
           <Select
@@ -159,6 +121,8 @@ const Header = () => {
             ))}
           </Select>
         </FormControl>
+      </Grid>
+      <Grid item>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
           <InputLabel id="room">Room</InputLabel>
           <Select
@@ -177,7 +141,11 @@ const Header = () => {
             <MenuItem value="3+1">3+1</MenuItem>
           </Select>
         </FormControl>
+      </Grid>
+      <Grid item>
         <Rating name="half-rating" defaultValue={0} precision={0.5} />
+      </Grid>
+      <Grid item>
         <FormControlLabel control={<Checkbox />} label="ReSale" />
       </Grid>
       <Grid item xs={3}>
@@ -194,21 +162,24 @@ const Header = () => {
       <Grid item xs={4}>
         <PriceRangeSlider />
       </Grid>
-      <Grid item >
-        <TextField
-            label="Date"
-            type="date"
-            defaultValue="2021-10-24"
-            InputLabelProps={{
-                shrink: true,
-                }}
-            />
 
+      <Grid item>
+        <TextField
+          label="Date"
+          type="date"
+          defaultValue="2021-10-24"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
       </Grid>
 
-      <Grid container spacing={2}
-      alignContent="center"
-      justifyContent={"center"}>
+      <Grid
+        container
+        spacing={2}
+        alignContent="center"
+        justifyContent={"center"}
+      >
         <Grid item xs={4} sm={2}>
           <Button
             variant="contained"
