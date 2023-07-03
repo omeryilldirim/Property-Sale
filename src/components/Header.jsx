@@ -46,10 +46,10 @@ const Header = () => {
       padding={4}
       justifyContent={"center"}
     >
-      <Grid item alignItems="center" justifyContent={"center"} xs={12}>
-        <FormGroup row sx={{ padding: "2rem" }}>
+      <Grid item container alignContent={'center'} justifyContent={"center"} xs={12} >
+        <FormGroup row >
           {commerceTypes.map((commerceType) => (
-            <FormControlLabel key={commerceType}
+            <FormControlLabel key={commerceType} xs={3}
               control={<Checkbox />}
               label={commerceType}
               value={commerceType.toLowerCase()}
@@ -64,7 +64,7 @@ const Header = () => {
         </FormGroup>
       </Grid>
       <Grid item>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
+        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
           <InputLabel id="rentOrSale">Rent/Sale</InputLabel>
           <Select
             labelId="rentOrSale"
@@ -72,7 +72,7 @@ const Header = () => {
             // value={age}
             label="Rent / Sale"
             //   onChange={handleChange}
-            autoWidth
+            
           >
             <MenuItem selected value="">
               <em>Select</em>
@@ -83,7 +83,7 @@ const Header = () => {
         </FormControl>
       </Grid>
       <Grid item>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
+        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
           <InputLabel id="country">Country</InputLabel>
           <Select
             labelId="country"
@@ -91,7 +91,7 @@ const Header = () => {
             // value={country}
             label="Country"
             //   onChange={handleChange}
-            autoWidth
+            
           >
             <MenuItem selected value="">
               <em>Select</em>
@@ -103,7 +103,7 @@ const Header = () => {
         </FormControl>
       </Grid>
       <Grid item>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
+        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
           <InputLabel id="state">State</InputLabel>
           <Select
             labelId="state"
@@ -111,7 +111,7 @@ const Header = () => {
             // value={state}
             label="State"
             //   onChange={handleChange}
-            autoWidth
+            
           >
             <MenuItem selected value="">
               <em>Select</em>
@@ -123,7 +123,7 @@ const Header = () => {
         </FormControl>
       </Grid>
       <Grid item>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" autoWidth>
+        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
           <InputLabel id="room">Room</InputLabel>
           <Select
             labelId="room"
@@ -131,9 +131,9 @@ const Header = () => {
             // value={room}
             label="Room"
             // onChange={handleChange}
-            autoWidth
+            
           >
-            <MenuItem selected value="">
+            <MenuItem selected value=''>
               <em>Select</em>
             </MenuItem>
             <MenuItem value="1+1">1+1</MenuItem>
