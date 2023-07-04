@@ -11,11 +11,12 @@ export default function Home() {
       <Box variant='contained'>
          <SimpleImageSlider
             width='100%'
-            height={500}
+            height='400px'
             images={sliderImages}
             showNavs={true}
             autoPlay={true} 
-            autoPlayDelay = {3}
+            autoPlayDelay = {4}
+
          />
          <Header />
       </Box>
