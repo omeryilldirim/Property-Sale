@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a task for a real estate website and deadline is 12-hours. So it was quite challenging and I've managed to complete. You can filter out the options Built with React and Material-UI.
+The project's objective is to create a page for filtering search results. The task has a 12-hour deadline and is for an estate website. So it was quite challenging and I've managed to complete. Built with React and Material-UI.
 
 ## Expected Outcome
 
