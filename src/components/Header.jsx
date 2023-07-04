@@ -205,9 +205,9 @@ const Header = () => {
           justifyContent={"center"}
           gap={3}
           xs={12}
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
+          sx={{ flexDirection: { xs: "column", lg: "row" } }}
         >
-          <Grid item>
+          <Grid item >
             <TextField
               label="Search..."
               variant="outlined"
