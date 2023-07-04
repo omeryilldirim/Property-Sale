@@ -10,7 +10,7 @@ const Map = ({mapCenter}) => {
 
 
   return (
-    <Box width={"700px"} height={'400px'} sx={{margin:'auto'}}>
+    <Box width={"600px"} height={'400px'} sx={{margin:'auto', transform:'translateY(-2rem)'}}>
       {/* {!isLoaded ? (
         <h1>Loading...</h1>
       ) : (
