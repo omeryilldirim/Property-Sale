@@ -17,10 +17,12 @@ import countries from "../helper/countries";
 import commerceTypes from "../helper/commerceTypes";
 import defaultValues from "../helper/defaultValues";
 import PriceRangeSlider from "./PriceRangeSlider";
+import coordinates from "../helper/coordinates";
 
-const Header = () => {
+const Header = ({setMapCenter, mapCenter}) => {
   const [states, setStates] = useState([]);
   const [searchQuery, setSearchQuery] = useState({ ...defaultValues });
+  
 
   const handleCommerceTypeChange = (e) => {
     e.target.checked
@@ -38,10 +40,11 @@ const Header = () => {
 
   return (
     <Box
+    
       sx={{ display: "flex", justifyContent: "center", alignContent: "center", transform: "translateY(-4rem)" }}
     >
       <Grid
-        container
+        container item
         alignContent="center"
         padding={4}
         justifyContent={"center"}
@@ -137,9 +140,10 @@ const Header = () => {
                 id="select-state"
                 label="State"
                 value={searchQuery.state}
-                onChange={(e) =>
+                onChange={(e) =>{
                   setSearchQuery({ ...searchQuery, state: e.target.value })
-                }
+                  e.target.value && setMapCenter(coordinates[e.target.value]) 
+                }}
                 defaultValue=""
               >
                 <MenuItem selected value="">
