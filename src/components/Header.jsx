@@ -11,7 +11,6 @@ import {
   Button,
   Rating,
   TextField,
-  Stack,
   Box,
 } from "@mui/material";
 import statesData from "../helper/states";
@@ -40,7 +39,7 @@ const Header = () => {
 
   return (
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignContent: "center", transform: "translateY(-3rem)" }}
+      sx={{ display: "flex", justifyContent: "center", alignContent: "center", transform: "translateY(-4rem)" }}
     >
       <Grid
         container
@@ -177,7 +176,7 @@ const Header = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item>
+          <Grid item alignSelf={'center'}>
             <Rating
               name="half-rating"
               value={searchQuery.star}
@@ -188,7 +187,7 @@ const Header = () => {
               }
             />
           </Grid>
-          <Grid item>
+          <Grid item alignSelf={'center'}>
             <FormControlLabel
               control={<Checkbox />}
               checked={searchQuery.resale}
@@ -207,6 +206,7 @@ const Header = () => {
           justifyContent={"center"}
           gap={3}
           xs={12}
+          
           sx={{ flexDirection: { xs: "column", md: "row" } }}
         >
           <Grid item>
@@ -222,7 +222,7 @@ const Header = () => {
             />
           </Grid>
 
-          <Grid item>
+          <Grid item alignSelf={'center'}>
             <PriceRangeSlider
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
