@@ -18,7 +18,7 @@ export default function Home() {
         autoPlay={true}
         autoPlayDelay={4}
       />
-      <Header mapCenter={mapCenter} setMapCenter={setMapCenter} />
+      <Header setMapCenter={setMapCenter} />
       <Map mapCenter={mapCenter}  />
     </Box>
   );

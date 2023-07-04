@@ -19,7 +19,7 @@ import defaultValues from "../helper/defaultValues";
 import PriceRangeSlider from "./PriceRangeSlider";
 import coordinates from "../helper/coordinates";
 
-const Header = ({setMapCenter, mapCenter}) => {
+const Header = ({setMapCenter}) => {
   const [states, setStates] = useState([]);
   const [searchQuery, setSearchQuery] = useState({ ...defaultValues });
   

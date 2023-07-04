@@ -10,7 +10,7 @@ const Map = ({mapCenter}) => {
 
 
   return (
-    <Box width={"800px"} height={'500px'} sx={{ display: "flex", justifyContent: "center", alignContent: "center", }}>
+    <Box width={"600px"} height={'400px'} sx={{margin:'auto'}}>
       {/* {!isLoaded ? (
         <h1>Loading...</h1>
       ) : (
@@ -18,7 +18,7 @@ const Map = ({mapCenter}) => {
           <Marker position={{ lat: 48, lng: 15 }} icon={"http://maps.google.com/mapfiles/ms/icons/pink-dot.png"}/>
         </GoogleMap>
       )} */}
-      
+
       <LoadScript
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}
       >
