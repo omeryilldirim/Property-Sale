@@ -11,7 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import HomeIcon from '@mui/icons-material/Home';
 import { pink } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Stack } from '@mui/material';
 
 const pages = ['Home', 'Agents', 'Pricing', 'Partners', 'About Us', 'Blog', 'FAQ', 'Support', 'Contact Us', 'Buy Ads'];
@@ -20,6 +20,7 @@ const settings = ['Profile', 'Logout'];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,7 +41,7 @@ function Navbar() {
     <AppBar position="static" color='transparent' >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <HomeIcon fontSize='large' sx={{ color: pink[500], display: { xs: 'none', md: 'flex' }, mr: 1 } }
+          <HomeIcon fontSize='large' sx={{ color: pink[500], display: { xs: 'none', md: 'flex' }, mr: 1, cursor:'pointer' }} onClick={() => navigate('/')} 
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -94,7 +95,7 @@ function Navbar() {
           </Stack>
           
           <Box sx={{ flexGrow: 0 }}>
-          <HomeIcon fontSize='large' sx={{ color: pink[500], display: { xs: 'flex', md: 'none' }, mr: 1 } }
+          <HomeIcon fontSize='large' sx={{ color: pink[500], display: { xs: 'flex', md: 'none' }, mr: 1, cursor:'pointer' } } onClick={() => navigate('/')}
           />
           </Box>
 
