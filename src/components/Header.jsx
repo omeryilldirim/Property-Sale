@@ -59,8 +59,8 @@ const Header = () => {
           justifyContent={"center"}
           xs={12}
         >
-          <Grid item>
-            <FormGroup row>
+          <Grid item >
+            <Box>
               {commerceTypes.map((commerceType) => (
                 <FormControlLabel
                   key={commerceType}
@@ -74,7 +74,7 @@ const Header = () => {
                   onClick={handleCommerceTypeChange}
                 />
               ))}
-            </FormGroup>
+            </Box>
           </Grid>
         </Grid>
         <Grid
@@ -206,7 +206,6 @@ const Header = () => {
           justifyContent={"center"}
           gap={3}
           xs={12}
-          
           sx={{ flexDirection: { xs: "column", md: "row" } }}
         >
           <Grid item>
