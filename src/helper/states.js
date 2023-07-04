@@ -1,5 +1,5 @@
 const statesData = {
-    usa: ['California', 'New York', 'Texas'],
+    usa: ['Los Angeles', 'New York', 'Las Vegas'],
     turkey: ['Istanbul', 'Ankara', 'Izmir'],
     germany: ['Hamburg', 'Bremen', 'Berlin']
 };
