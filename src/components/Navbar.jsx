@@ -124,7 +124,7 @@ function Navbar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Link to={`/${setting.toLowerCase().replace(/\s/g, '')}`} style={{ textDecoration: 'none' }}>{setting}</Link>
+                  <Link to={`/${setting.toLowerCase().replace(/\s/g, '')}`} style={{ textDecoration: 'none', color: 'black'}}>{setting}</Link>
                 </MenuItem>
               ))}
             </Menu>
