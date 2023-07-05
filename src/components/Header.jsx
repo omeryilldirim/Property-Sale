@@ -19,6 +19,7 @@ import defaultValues from "../helper/defaultValues";
 import PriceRangeSlider from "./PriceRangeSlider";
 import coordinates from "../helper/coordinates";
 import salesList from "../helper/salesList";
+import { toastSuccessNotify, toastWarnNotify } from "../helper/ToastNotify";
 
 const Header = ({setMapCenter, setSalesList}) => {
   const [states, setStates] = useState([]);
@@ -262,7 +263,7 @@ const Header = ({setMapCenter, setSalesList}) => {
               onClick={() => {
                 setSalesList(salesList[searchQuery.state])
                 console.log(searchQuery);
-                // alert("Please check console !");
+                toastSuccessNotify("Search Completed");
               }}
               fullWidth
             >
@@ -273,7 +274,11 @@ const Header = ({setMapCenter, setSalesList}) => {
             <Button
               variant="contained"
               color="warning"
-              onClick={() => setSearchQuery({ ...defaultValues })}
+              onClick={() => {
+                setSearchQuery({ ...defaultValues })
+                toastWarnNotify("Search Cleared");
+              }}
+
               fullWidth
             >
               Clear
