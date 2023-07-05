@@ -1,5 +1,6 @@
 import './App.css';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ToastContainer } from "react-toastify";
 import { grey, blueGrey } from "@mui/material/colors";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
@@ -50,6 +51,7 @@ function App() {
             <Route path='/logout' element={<LogOut />} />
           </Routes>
         </Router>
+        <ToastContainer />
       </ThemeProvider>
     </div>
   );

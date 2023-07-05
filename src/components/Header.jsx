@@ -263,7 +263,7 @@ const Header = ({setMapCenter, setSalesList}) => {
               onClick={() => {
                 setSalesList(salesList[searchQuery.state])
                 console.log(searchQuery);
-                toastSuccessNotify("Search Completed");
+                searchQuery.state && toastSuccessNotify("Results Listed!");
               }}
               fullWidth
             >
@@ -276,7 +276,7 @@ const Header = ({setMapCenter, setSalesList}) => {
               color="warning"
               onClick={() => {
                 setSearchQuery({ ...defaultValues })
-                toastWarnNotify("Search Cleared");
+                toastWarnNotify("Filters Cleared!");
               }}
 
               fullWidth
