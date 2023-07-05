@@ -7,6 +7,7 @@ import sliderImages from "../helper/images";
 
 export default function Home() {
   const [mapCenter, setMapCenter] = useState({ lat: 52.377956, lng: 4.897070 });
+  const [salesList, setSalesList] = useState([]);
 
   return (
     <Box variant="contained">
@@ -18,8 +19,8 @@ export default function Home() {
         autoPlay={true}
         autoPlayDelay={4}
       />
-      <Header setMapCenter={setMapCenter} />
-      <Map mapCenter={mapCenter}  />
+      <Header setMapCenter={setMapCenter} setSalesList={setSalesList} />
+      <Map mapCenter={mapCenter} salesList={salesList}  />
     </Box>
   );
 }

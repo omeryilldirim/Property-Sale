@@ -18,8 +18,9 @@ import commerceTypes from "../helper/commerceTypes";
 import defaultValues from "../helper/defaultValues";
 import PriceRangeSlider from "./PriceRangeSlider";
 import coordinates from "../helper/coordinates";
+import salesList from "../helper/salesList";
 
-const Header = ({setMapCenter}) => {
+const Header = ({setMapCenter, setSalesList}) => {
   const [states, setStates] = useState([]);
   const [searchQuery, setSearchQuery] = useState({ ...defaultValues });
   
@@ -259,8 +260,9 @@ const Header = ({setMapCenter}) => {
               variant="contained"
               color="success"
               onClick={() => {
-                alert("Please check console !");
+                setSalesList(salesList[searchQuery.state])
                 console.log(searchQuery);
+                // alert("Please check console !");
               }}
               fullWidth
             >
