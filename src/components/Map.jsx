@@ -1,4 +1,4 @@
-import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
+import { GoogleMap, Marker, LoadScript, InfoBox } from "@react-google-maps/api";
 import { Box } from "@mui/material";
 
 const Map = ({ mapCenter, salesList }) => {
@@ -32,9 +32,11 @@ const Map = ({ mapCenter, salesList }) => {
             <Marker
               key={Date.now() + Math.random()}
               position={{ lat: sale.lat, lng: sale.lng }}
-            />
+            >
+              <InfoBox>adress</InfoBox>
+            </Marker>
           ))}
-          {/* <Marker position={mapCenter}  /> */}
+
         </GoogleMap>
       </LoadScript>
     </Box>
