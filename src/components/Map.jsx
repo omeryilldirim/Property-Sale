@@ -33,7 +33,7 @@ const Map = ({ mapCenter, salesList }) => {
               key={Date.now() + Math.random()}
               position={{ lat: sale.lat, lng: sale.lng }}
             >
-              <InfoBox>adress</InfoBox>
+              <InfoBox position={{ lat: sale.lat, lng: sale.lng }}>adress</InfoBox>
             </Marker>
           ))}
 
