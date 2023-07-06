@@ -1,12 +1,30 @@
-import { GoogleMap, Marker, LoadScript, InfoBox } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  Marker,
+  LoadScript,
+  InfoWindow,
+} from "@react-google-maps/api";
 import { Box } from "@mui/material";
+import { useState } from "react";
 
 const Map = ({ mapCenter, salesList }) => {
+  const [mapRef, setMapRef] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  const [infoWindowData, setInfoWindowData] = useState();
   // const { isLoaded } = useLoadScript({
   //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   // });
   // const center = useMemo(() => ({ lat: 48, lng: 15 }), []);
+  const onMapLoad = (map) => {
+    setMapRef(map);
 
+  };
+
+  const handleMarkerClick = (id, lat, lng, desc) => {
+    mapRef?.panTo({ lat, lng });
+    setInfoWindowData({ id, desc });
+    setIsOpen(true);
+  };
   return (
     <Box
       width={"600px"}
@@ -27,18 +45,33 @@ const Map = ({ mapCenter, salesList }) => {
           zoom={11}
           center={mapCenter}
           options={{ mapId: "4eb4c7fdbd63a078" }}
+          onLoad={onMapLoad}
+          onClick={() => setIsOpen(false)}
         >
-          {salesList?.map((sale) => (
-            <Marker
-              key={Date.now() + Math.random()}
-              position={{ lat: sale.lat, lng: sale.lng }}
-            >
-              <InfoBox position={{ lat: sale.lat, lng: sale.lng }}>
-                <div>adress</div>
-              </InfoBox>
-            </Marker>
+          {salesList?.map(({lat, lng, desc}, index) => (
+            <>
+              <Marker
+                key={index}
+                position={{ lat: lat, lng: lng }}
+                onClick={() => {
+                  handleMarkerClick(index, lat, lng, desc);
+                }}
+              >
+                {isOpen && infoWindowData?.id === index && (
+                <InfoWindow  
+                onCloseClick={() => {
+                  setIsOpen(false);
+                }}>
+                  <div>
+                    <h1 style={{ fontSize: 12, fontColor: `#08233B` }}>
+                      {infoWindowData?.desc}
+                    </h1>
+                  </div>
+                </InfoWindow>
+                )}
+              </Marker>
+            </>
           ))}
-
         </GoogleMap>
       </LoadScript>
     </Box>
