@@ -22,12 +22,6 @@ import LogOut from './pages/LogOut';
 function App() {
   const theme = createTheme({
     palette: {
-      primary: {
-        main: grey["900"],
-      },
-      secondary: {
-        main: blueGrey["900"],
-      },
     },
   });
   return (
