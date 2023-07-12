@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,13 +12,14 @@ import { pink } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link, useNavigate } from 'react-router-dom';
 import { Stack } from '@mui/material';
+import { useState } from 'react';
 
 const pages = ['Home', 'Agents', 'Pricing', 'Partners', 'About Us', 'Blog', 'FAQ', 'Support', 'Contact Us', 'Buy Ads'];
 const settings = ['Profile', 'Logout'];
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
@@ -41,7 +41,7 @@ function Navbar() {
     <AppBar position="static" color='transparent' >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <HomeIcon fontSize='large' sx={{ color: pink[500], display: { xs: 'none', md: 'flex' }, mr: 1, cursor:'pointer' }} onClick={() => navigate('/')} 
+          <HomeIcon fontSize='large' sx={{ color: pink[500], display: { xs: 'none', md: 'flex' }, mr: 1, cursor:'pointer' }} onClick={() => navigate('/home')} 
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

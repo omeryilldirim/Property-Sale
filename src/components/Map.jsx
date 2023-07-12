@@ -16,7 +16,7 @@ const Map = ({ mapCenter, salesList }) => {
   // });
   // const center = useMemo(() => ({ lat: 48, lng: 15 }), []);
 
-  const handleMarkerClick = (id, lat, lng, desc) => {
+  const handleMarkerClick = (id, desc) => {
     setInfoWindowData({ id, desc });
     setIsOpen(true);
   };
@@ -48,7 +48,7 @@ const Map = ({ mapCenter, salesList }) => {
                 key={index}
                 position={{ lat: lat, lng: lng }}
                 onClick={() => {
-                  handleMarkerClick(index, lat, lng, desc);
+                  handleMarkerClick(index, desc);
                 }}
               >
                 {isOpen && infoWindowData?.id === index && (

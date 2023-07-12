@@ -36,7 +36,7 @@ function App() {
         <Router>
         <Navbar />
           <Routes>
-            <Route exact path="/" element={<Navigate to={'/home'}/>} />
+            <Route path="/" element={<Navigate to={'/home'}/>} />
             <Route path="/home" element={<Home />} />
             <Route path="/agents" element={<Agents />} />
             <Route path='/pricing' element={<Pricing />} />

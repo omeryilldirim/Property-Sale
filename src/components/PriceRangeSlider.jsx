@@ -20,7 +20,6 @@ const PriceRangeSlider = ({ searchQuery, setSearchQuery }) => {
 
   return (
     <Grid container alignItems="center">
-
         <Grid
           item
           container

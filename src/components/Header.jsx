@@ -41,8 +41,7 @@ const Header = ({setMapCenter, setSalesList}) => {
   };
 
   return (
-    <Box
-    
+    <Box   
       sx={{ display: "flex", justifyContent: "center", alignContent: "center", transform: "translateY(-4rem)" }}
     >
       <Grid
@@ -118,8 +117,8 @@ const Header = ({setMapCenter, setSalesList}) => {
                 id="select-country"
                 label="Country"
                 onChange={(e) => {
-                  setSearchQuery({ ...searchQuery, country: e.target.value });
                   setStates(statesData[e.target.value]);
+                  setSearchQuery({ ...searchQuery, country: e.target.value });
                 }}
                 value={searchQuery.country}
               >
