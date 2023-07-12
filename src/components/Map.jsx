@@ -43,7 +43,6 @@ const Map = ({ mapCenter, salesList }) => {
           onClick={() => setIsOpen(false)}
         >
           {salesList?.map(({lat, lng, desc}, index) => (
-            <>
               <Marker
                 key={index}
                 position={{ lat: lat, lng: lng }}
@@ -64,7 +63,6 @@ const Map = ({ mapCenter, salesList }) => {
                 </InfoWindow>
                 )}
               </Marker>
-            </>
           ))}
         </GoogleMap>
       </LoadScript>

@@ -118,7 +118,7 @@ const Header = ({setMapCenter, setSalesList}) => {
                 label="Country"
                 onChange={(e) => {
                   setStates(statesData[e.target.value]);
-                  setSearchQuery({ ...searchQuery, country: e.target.value });
+                  setSearchQuery({ ...searchQuery, country: e.target.value, state:"" });
                 }}
                 value={searchQuery.country}
               >
