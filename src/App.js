@@ -1,7 +1,5 @@
 import './App.css';
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ToastContainer } from "react-toastify";
-import { grey, blueGrey } from "@mui/material/colors";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -20,13 +18,8 @@ import LogOut from './pages/LogOut';
 
 
 function App() {
-  const theme = createTheme({
-    palette: {
-    },
-  });
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
         <Router>
         <Navbar />
           <Routes>
@@ -46,7 +39,6 @@ function App() {
           </Routes>
         </Router>
         <ToastContainer />
-      </ThemeProvider>
     </div>
   );
 }
